@@ -1,2 +1,2 @@
-# Selection
-# 测试
+# 短代码
+[xj jieshao="" title="" img="" url="" name=""]
