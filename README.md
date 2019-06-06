@@ -1,4 +1,19 @@
-<h2>DPlayer For Selection By WordPress</h2>
+## DPlayer For Selection By WordPress
+
+[DPlayer](https://github.com/DIYgod/DPlayer) is such a lovely HTML5 danmaku video player by [DIYGod](https://github.com/DIYgod), and it's used on many platforms (as listed below). 
+- [DPlayer-for-typecho](https://github.com/volio/DPlayer-for-typecho)
+
+- [Hexo-tag-dplayer](https://github.com/NextMoe/hexo-tag-dplayer)
+
+- [DPlayer_for_Z-BlogPHP](https://github.com/fghrsh/DPlayer_for_Z-BlogPHP)
+
+- [纸飞机视频区插件(DPlayer for Discuz!)](https://coding.net/u/Click_04/p/video/git)
+
+- [dplayer_py_backend](https://github.com/dixyes/dplayer_py_backend)
+
+- [dplayer_lua_backend](https://github.com/dixyes/dplayer_lua_backend)
+
+Today, DPlayer is coming to WordPress.
 
 ## 事项说明
 <p>本插件原版由<code>Carseason</code>提供,后经本人修改</p>
