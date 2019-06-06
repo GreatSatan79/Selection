@@ -4,12 +4,7 @@
 <p>本插件基于<code>7B2主题</code>开发而成,如想要兼容你自己所用的主题,请修改<code>assets/css/selection.css</code>文件</p>
 
 ## 特别鸣谢(排名不分前后)
-<p><img style="border-radius: 50px;height: 40px;" src="https://avatars3.githubusercontent.com/u/8266075?s=180&amp;v=4"><a target="_blank" href="https://diygod.me/">DIYgod</a>
-<img style="border-radius: 50px;height: 40px;" src="https://avatars3.githubusercontent.com/u/4526339?s=180&amp;v=4"><a target="_blank" href="https://biji.io/">Tokinx</a>
-<img style="border-radius: 50px;height: 40px;" src="https://avatars3.githubusercontent.com/u/25239238?s=180&amp;v=4"><a target="_blank" href="https://ecy1.com/">Carseason</a>
-<img style="border-radius: 50px;height: 40px;" src="https://avatars3.githubusercontent.com/u/4999291?s=180&amp;v=4"><a target="_blank" href="https://gitcafe.net/">yunluo</a>
-<img style="border-radius: 50px;height: 40px;" src="https://www.bgbk.org/wp-content/avatar/518sn2dvlgp0.png?ver=1559746130"><a target="_blank" href="https://www.bgbk.org/">Mr.Bing</a>
-<img style="border-radius: 50px;height: 40px;" src="https://static.7b2.com/wp-content/uploads/2019/03/5c89e27c69873.jpg?x-oss-process=image/resize,m_fill,limit_0,h_140,w_140"><a target="_blank" href="https://7b2.com/">春哥</a></p>
+<p><img https://i.loli.net/2019/06/06/5cf8b33b1265787979.png"></p>
 <p>由衷感谢以上所有人对本插件的贡献,谢谢!</p>
 
 ## 短代码调用:
