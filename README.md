@@ -8,6 +8,7 @@
 <p>由衷感谢以上所有人对本插件的贡献,谢谢!</p>
 
 ## 短代码调用:
+<p>文章编辑页面:<code><b>文本编辑模式下</b></code>有短代码快捷键</p>
 <p><code>[xj jieshao="" title="" img="" url="" name=""]</code></p>
 <p><code>[xj introduction=""]</code>视频的简介</p>
 <p><code>[xj title=""]</code>视频的标题</p>
