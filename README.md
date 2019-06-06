@@ -17,7 +17,7 @@ Today, DPlayer is coming to WordPress and 7B2.
 ## Description of the matter
 <p>The original plugin is provided by <code> Carseason </code>, I am modifying it now</p>
 <p>The plugin background is based on the <code>Geeks Park</code> background theme framework development: <a target="_blank" href="https://gitcafe.net/archives/3995.html">official website download</a></p>
-<p>This plugin is based on the <code>7B2 theme</code>. If you want to be compatible with your own theme, please modify the <code>assets/css/selection.css</code> file</p>
+<p>This plugin is based on the <code>7B2 </code>theme. If you want to be compatible with your own theme, please modify the <code>assets/css/selection.css</code> file</p>
 
 ## Special thanks
 <p><img src="https://i.loli.net/2019/06/06/5cf8b33b1265787979.png"></p>
