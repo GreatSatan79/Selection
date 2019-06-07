@@ -155,31 +155,31 @@ add_action('after_wp_tiny_mce', 'Cae_iframe');
 */
 if (!is_admin()) {
     //前端CSS样式
-    wp_enqueue_style('selection', plugins_url("selection/assets/css/selection.css"), false);
+    wp_enqueue_style('selection', plugins_url("Selection/assets/css/selection.css"), false);
     //播放器样式
-    wp_enqueue_style('selection-dplayer-min', plugins_url("selection/assets/css/dplayer/dplayer.min.css"), false);
+    wp_enqueue_style('selection-dplayer-min', plugins_url("Selection/assets/css/dplayer/dplayer.min.css"), false);
 }
 function ds_print_jquery_in_footer()
 {
     if (!is_admin()) {
         //Javascript库
-        wp_enqueue_script('selection-jquery-min', plugins_url("selection/assets/js/jquery.min.js"), false);
+        wp_enqueue_script('selection-jquery-min', plugins_url("Selection/assets/js/jquery.min.js"), false);
         //前端JS
-        wp_enqueue_script('selection', plugins_url('selection/assets/js/selection.js'), false);
+        wp_enqueue_script('selection', plugins_url('Selection/assets/js/selection.js'), false);
         //播放器JS
-        wp_enqueue_script('selection-dplayer-min', plugins_url("selection/assets/js/dplayer/dplayer.min.js"), false);
+        wp_enqueue_script('selection-dplayer-min', plugins_url("Selection/assets/js/dplayer/dplayer.min.js"), false);
         //用于解析HLS
-        wp_enqueue_script('selection-dplayer-md5-min', plugins_url("selection/assets/js/dplayer/md5.min.js"), false);
+        wp_enqueue_script('selection-dplayer-md5-min', plugins_url("Selection/assets/js/dplayer/md5.min.js"), false);
         if (get_option('git_hls')) {
-            wp_enqueue_script('selection-dplayer-hls-min', plugins_url('selection/assets/js/dplayer/hls.min.js'), false);
+            wp_enqueue_script('selection-dplayer-hls-min', plugins_url('Selection/assets/js/dplayer/hls.min.js'), false);
         }
         //用于解析MPEG DASH
         if (get_option('git_dash')) {
-            wp_enqueue_script('selection-dplayer-dash-min', plugins_url('selection/assets/js/dplayer/dash.min.js'), false);
+            wp_enqueue_script('selection-dplayer-dash-min', plugins_url('Selection/assets/js/dplayer/dash.min.js'), false);
         }
         //用于解析FLV
         if (get_option('git_flv')) {
-            wp_enqueue_script('selection-dplayer-flv-min', plugins_url('selection/assets/js/dplayer/flv.min.js'), false);
+            wp_enqueue_script('selection-dplayer-flv-min', plugins_url('Selection/assets/js/dplayer/flv.min.js'), false);
         }
     }
 }
