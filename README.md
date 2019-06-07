@@ -1,3 +1,6 @@
+## Download must see
+<p>You must change <code>Selection-master</code> to <code>Selection</code> after downloading, otherwise it will go wrong!!!</p>
+
 ## DPlayer For Selection By WordPress
 
 [DPlayer](https://github.com/DIYgod/DPlayer) is such a lovely HTML5 danmaku video player by [DIYGod](https://github.com/DIYgod), and it's used on many platforms (as listed below). 
