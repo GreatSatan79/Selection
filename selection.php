@@ -163,7 +163,7 @@ function ds_print_jquery_in_footer()
 {
     if (!is_admin()) {
         //Javascript库
-        wp_enqueue_script('selection-jquery-min', plugins_url("Selection/assets/js/jquery.min.js"), false);
+        //wp_enqueue_script('selection-jquery-min', plugins_url("Selection/assets/js/jquery.min.js"), false);
         //前端JS
         wp_enqueue_script('selection', plugins_url('Selection/assets/js/selection.js'), false);
         //播放器JS
