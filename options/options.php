@@ -345,7 +345,7 @@ function git_options_page()
 		<code>极客公园</code>后台主题框架开发:
 		<a target="_blank" href="https://gitcafe.net/archives/3995.html">官网下载</a></p>
 	<p>本插件基于
-		<code>7B2主题</code>开发而成,如想要兼容你自己所用的主题,请修改
+		<code>7B2</code>主题开发而成,如想要兼容你自己所用的主题,请修改
 		<code>assets/css/selection.css</code>文件</p>
     <hr>
     <script>
@@ -363,7 +363,7 @@ OutWord();
 			<b>文本编辑模式下</b>
 		</code>有短代码快捷键</p>
 	<p>短代码调用:
-		<code>[xj jieshao="" title="" img="" url="" name=""]</code></p>
+		<code>[xj introduction="" title="" img="" url="" name=""]</code></p>
 	<p>
 		<code>[xj introduction=""]</code>视频的简介</p>
 	<p>
