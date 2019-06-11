@@ -7,8 +7,10 @@ Version: 超装逼的至尊VIP
 Author: 79
 Author URI: https://saigaocy.me/
 */
-require_once __DIR__ . '/options/options.php';
+
 //引用后台配置文件
+require_once __DIR__ . '/options/options.php';
+
 /*
 短代码判断
 */
@@ -82,6 +84,7 @@ function selection($array_url_title)
         }
     }
     return <<<EOF
+    <link rel='stylesheet' id='selection-css' href='/wp-content/plugins/Selection/assets/css/selection.css' type='text/css' media='all'/>
                 <div class="bangumi-header clearfix">
                 <div class="header-info">
                     <h2 title="{$title}">{$title}</h2>
@@ -154,8 +157,6 @@ add_action('after_wp_tiny_mce', 'Cae_iframe');
 这里是前端所需文件
 */
 if (!is_admin()) {
-    //前端CSS样式
-    wp_enqueue_style('selection', plugins_url("Selection/assets/css/selection.css"), false);
     //播放器样式
     wp_enqueue_style('selection-dplayer-min', plugins_url("Selection/assets/css/dplayer/dplayer.min.css"), false);
 }
@@ -163,7 +164,9 @@ function ds_print_jquery_in_footer()
 {
     if (!is_admin()) {
         //Javascript库
-        //wp_enqueue_script('selection-jquery-min', plugins_url("Selection/assets/js/jquery.min.js"), false);
+        if (get_option('git_jq')) {
+        wp_enqueue_script('selection-jquery-min', plugins_url("Selection/assets/js/jquery.min.js"), false);
+        }
         //前端JS
         wp_enqueue_script('selection', plugins_url('Selection/assets/js/selection.js'), false);
         //播放器JS
