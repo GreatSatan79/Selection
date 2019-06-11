@@ -1,5 +1,145 @@
 <?php
-$options = array(array('title' = >'播放格式设置', 'id' = >'bf', 'type' = >'panelstart'), array('name' = >'是否开启对JQ?', 'desc' = >'如果启用插件后无法播放或不显示播放器请开启本功能!', 'id' = >'git_jq', 'type' = >'checkbox'), array('name' = >'是否开启对HLS的支持', 'desc' = >'开启后，即可播放M3U8格式的视频', 'id' = >'git_hls', 'type' = >'checkbox'), array('name' = >'是否开启对MPEG DASH的支持', 'desc' = >'开启后，即可播放MPD格式的视频', 'id' = >'git_dash', 'type' = >'checkbox'), array('name' = >'是否开启对FLV的支持', 'desc' = >'开启后，即可播放FLV格式的视频', 'id' = >'git_flv', 'type' = >'checkbox'), array('type' = >'panelend'), array('title' = >'功能设置', 'id' = >'gn', 'type' = >'panelstart'), array('name' = >'是否开启自动播放', 'desc' = >'开启后打开页面将会自动播放视频', 'id' = >'git_zd', 'type' = >'radio', 'options' = >array('开启' = >'true', '关闭' = >'false'), 'std' = >'false'), array('name' = >'是否开启预加载', 'desc' = >'开启后打开视频将会预加载', 'id' = >'git_yjz', 'type' = >'radio', 'options' = >array('开启' = >'true', '关闭' = >'false'), 'std' = >'false'), array('name' = >'是否开启直播', 'desc' = >'开启后无法拖动进度条', 'id' = >'git_zb', 'type' = >'radio', 'options' = >array('开启' = >'true', '关闭' = >'false'), 'std' = >'false'), array('name' = >'是否开启热键', 'desc' = >'开启后将会启用热键功能', 'id' = >'git_rj', 'type' = >'radio', 'options' = >array('开启' = >'true', '关闭' = >'false'), 'std' = >'false'), array('name' = >'是否开启截图', 'desc' = >'如果开启，视频和视频封面需要开启跨域', 'id' = >'git_jt', 'type' = >'radio', 'options' = >array('开启' = >'true', '关闭' = >'false'), 'std' = >'false'), array('name' = >'是否开启循环', 'desc' = >'开启后将会启用视循环功能', 'id' = >'git_xh', 'type' = >'radio', 'options' = >array('开启' = >'true', '关闭' = >'false'), 'std' = >'false'), array('type' = >'panelend'), array('title' = >'其他设置', 'id' = >'qt', 'type' = >'panelstart'), array('name' = >'弹幕API', 'desc' = >'默认为:https://dplayer.moerats.com/', 'id' = >'git_api', 'type' = >'text', 'std' = >'https://dplayer.moerats.com/'), array('name' = >'LOGO', 'desc' = >'在左上角展示一个 logo，你可以通过 CSS 调整它的大小和位置', 'id' = >'git_logo', 'type' = >'text', 'std' = >''), array('name' = >'插件色', 'desc' = >'默认#FADFA3', 'id' = >'git_zts', 'type' = >'text', 'std' = >'#FADFA3'), array('name' = >'视频音量', 'desc' = >'默认为0.7,请注意播放器会记忆用户设置，手动设置音量后默认音量即失效', 'id' = >'git_yl', 'type' = >'text', 'std' = >'0.7'), array('name' = >'自定义右键菜单', 'id' = >'git_yjcd', 'type' = >'textarea', 'std' = >'
+$options = array(
+    array(
+        'title' => '播放格式设置', 
+        'id' => 
+        'bf', 
+        'type' => 'panelstart'
+        ), 
+    array(
+        'name' => '是否开启对JQ?', 
+        'desc' => '你的主题未自带JQ请启用本功能!<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PS:启用插件后无法播放或不显示播放器请开启本功能!', 
+        'id' => 'git_jq', 
+        'type' => 'checkbox'
+        ), 
+    array(
+        'name' => '是否开启对HLS的支持', 
+        'desc' => '开启后，即可播放M3U8格式的视频', 
+        'id' => 'git_hls', 
+        'type' => 'checkbox'
+        ), 
+    array(
+        'name' => '是否开启对MPEG DASH的支持',
+        'desc' => '开启后，即可播放MPD格式的视频', 
+        'id' => 'git_dash', 
+        'type' => 'checkbox'
+        ), 
+    array(
+        'name' => '是否开启对FLV的支持',
+        'desc' => '开启后，即可播放FLV格式的视频', 
+        'id' => 'git_flv', 
+        'type' => 'checkbox'
+        ),
+    array(
+        'type' => 'panelend'
+    ), 
+    array(
+        'title' => '功能设置', 
+        'id' => 'gn', 
+        'type' => 'panelstart'
+    ), 
+    array(
+        'name' => '是否开启自动播放', 
+        'desc' => '开启后打开页面将会自动播放视频', 
+        'id' => 'git_zd', 
+        'type' => 'radio', 
+        'options' => array(
+            '开启' => 'true', 
+            '关闭' => 'false'
+        ), 
+        'std' => 'false'
+    ), 
+    array(
+        'name' => '是否开启预加载', 
+        'desc' => '开启后打开视频将会预加载', 
+        'id' => 'git_yjz', 
+        'type' => 'radio', 
+        'options' => array(
+            '开启' => 'true', 
+            '关闭' => 'false'
+        ), 
+        'std' => 'false'
+    ), 
+    array(
+        'name' => '是否开启直播', 
+        'desc' => '开启后无法拖动进度条', 
+        'id' => 'git_zb', 'type' => 
+        'radio', 'options' => array(
+            '开启' => 'true', 
+            '关闭' => 'false'
+        ), 
+        'std' => 'false'
+    ), 
+    array(
+        'name' => '是否开启热键', 
+        'desc' => '开启后将会启用热键功能', 
+        'id' => 'git_rj', 'type' => 
+        'radio', 'options' => array(
+            '开启' => 'true', 
+            '关闭' => 'false'
+        ), 'std' => 'false'
+    ), 
+    array(
+        'name' => '是否开启截图', 
+        'desc' => '如果开启，视频和视频封面需要开启跨域', 
+        'id' => 'git_jt', 
+        'type' => 'radio', 
+        'options' => array(
+            '开启' => 'true', 
+            '关闭' => 'false'
+        ), 'std' => 'false'
+    ), 
+    array(
+        'name' => '是否开启循环', 
+        'desc' => '开启后将会启用视循环功能', 
+        'id' => 'git_xh', 
+        'type' => 'radio', 
+        'options' => array(
+            '开启' => 'true', 
+            '关闭' => 'false'
+        ), 
+        'std' => 'false'
+    ), 
+    array(
+        'type' => 'panelend'
+    ), 
+    array(
+        'title' => '其他设置', 
+        'id' => 'qt', 
+        'type' => 'panelstart'
+    ), 
+    array(
+        'name' => '弹幕API', 
+        'desc' => '默认为:https://dplayer.moerats.com/', 
+        'id' => 'git_api', 
+        'type' => 'text', 
+        'std' => 'https://dplayer.moerats.com/'
+    ), 
+    array(
+        'name' => 'LOGO', 
+        'desc' => '在左上角展示一个 logo，你可以通过 CSS 调整它的大小和位置', 
+        'id' => 'git_logo', 
+        'type' => 'text', 
+        'std' => ''
+    ), 
+    array('name' => '插件色', 
+    'desc' => '默认#FADFA3', 
+    'id' => 'git_zts', 
+    'type' => 'text', 
+    'std' => '#FADFA3'
+), 
+array(
+    'name' => '视频音量', 
+    'desc' => '默认为0.7,请注意播放器会记忆用户设置，手动设置音量后默认音量即失效', 
+    'id' => 'git_yl', 
+    'type' => 'text', 
+    'std' => '0.7'
+), 
+array(
+    'name' => '自定义右键菜单', 
+    'id' => 'git_yjcd', 
+    'type' => 'textarea', 
+    'std' => '
         {
             text: \'关于作者\',
             link: \'https://diygod.me\'
@@ -7,7 +147,10 @@ $options = array(array('title' = >'播放格式设置', 'id' = >'bf', 'type' = >
         {
             text: "DPlayer v1.25.0",
             link:"https://github.com/MoePlayer/DPlayer"
-        }'), array('type' = >'panelend'));
+        }'), 
+        array('type' => 'panelend')
+    );
+
 /*
 插件后台设置已完成，下面可以不用看了
 */
@@ -349,7 +492,7 @@ function git_options_page()
 		<code>assets/css/selection.css</code>文件<a target="_blank" href="https://saigaocy.me/wp-admin/plugin-editor.php?file=selection%2Fassets%2Fcss%2Fselection.css&plugin=selection%2Fselection.php""></a>点我修改</p>
     <hr>
     <script>
-var Words = "%20%20%20%20%3Cp%3E%u7279%u6B64%u9E23%u8C22%28%u6392%u540D%u4E0D%u5206%u524D%u540E%29%3A%3C/p%3E%0A%20%20%20%20%3Cp%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/8266075%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//diygod.me/%22%3EDIYgod%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/4526339%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//biji.io/%22%3ETokinx%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/25239238%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//ecy1.com/%22%3ECarseason%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/4999291%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//gitcafe.net/%22%3Eyunluo%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//www.bgbk.org/wp-content/avatar/518sn2dvlgp0.png%3Fver%3D1559746130%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//www.bgbk.org/%22%3EMr.Bing%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//static.7b2.com/wp-content/uploads/2019/03/5c89e27c69873.jpg%3Fx-oss-process%3Dimage/resize%2Cm_fill%2Climit_0%2Ch_140%2Cw_140%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//7b2.com/%22%3E%u6625%u54E5%3C/a%3E%3C/p%3E%0A%20%20%20%20%3Cp%3E%u7531%u8877%u611F%u8C22%u4EE5%u4E0A%u6240%u6709%u4EBA%u5BF9%u672C%u63D2%u4EF6%u7684%u8D21%u732E%2C%u8C22%u8C22%21%3C/p%3E" //put your cripto code there
+var Words = "%20%20%20%20%3Cp%3E%u7279%u6B64%u9E23%u8C22%28%u6392%u540D%u4E0D%u5206%u524D%u540E%29%3A%3C/p%3E%0A%20%20%20%20%3Cp%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/8266075%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//diygod.me/%22%3EDIYgod%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/4526339%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//biji.io/%22%3ETokinx%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/25239238%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//ecy1.com/%22%3ECarseason%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/4999291%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//gitcafe.net/%22%3Eyunluo%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//www.bgbk.org/wp-content/avatar/518sn2dvlgp0.png%3Fver%3D1559746130%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//www.bgbk.org/%22%3EMr.Bing%3C/a%3E%0A%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//i.loli.net/2019/06/12/5cffd9601beb574509.jpg%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//www.moerats.com/%22%3ERat%27s%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//i.loli.net/2019/06/12/5cffd8b00328e48808.png%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//7b2.com/%22%3E%u6625%u54E5%3C/a%3E%3C/p%3E%0A%0A%20%20%20%20%3Cp%3E%u7531%u8877%u611F%u8C22%u4EE5%u4E0A%u6240%u6709%u4EBA%u5BF9%u672C%u63D2%u4EF6%u7684%u8D21%u732E%2C%u8C22%u8C22%21%3C/p%3E%0A%20%20%20%20%3Chr%3E%0A%20%20%20%20%3Cp%3ESelection%u63D2%u4EF6%u8BA8%u8BBA%u7FA4%3A%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//jq.qq.com/%3F_wv%3D1027%26k%3D5AFXgbv%22%3E951636879%3C/a%3E%3C/p%3E%0A%20%20%20%20%20%3Cp%3E%u5982%u679C%u89C9%u5F97%u672C%u63D2%u4EF6%u5BF9%u4F60%u6709%u7528%u7684%u8BDD%u8BF7%u7ED9%u4E00%u4E2AStar%u5427%7E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//github.com/GreatSatan79/Selection%22%3E%u9879%u76EE%u5730%u5740%3C/a%3E%3C/p%3E"
 function OutWord() {
     var NewWords;
     NewWords = unescape(Words);
@@ -426,6 +569,7 @@ jQuery(function($) {
 </script>
 <?php 
 }
+
 /*
 启用插件后自动跳转至选项页面
 */
