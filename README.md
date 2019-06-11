@@ -23,7 +23,7 @@ Today, DPlayer is coming to WordPress and 7B2.
 <p>This plugin is based on the <code>7B2 </code>theme. If you want to be compatible with your own theme, please modify the <code>assets/css/selection.css</code> file</p>
 
 ## Special thanks
-<p><img src="https://i.loli.net/2019/06/06/5cf8b33b1265787979.png"></p>
+<p><img src="https://i.loli.net/2019/06/12/5cffe8b3ceaed36097.png"></p>
 <p>Sincerely thank all of you for your contribution to this plugin, thank you!</p>
 
 ## Short code call
