@@ -8,7 +8,9 @@ Author: 79
 Author URI: https://saigaocy.me/
 */
 
-//引用后台配置文件
+/*
+引用后台配置文件
+*/
 require_once __DIR__ . '/options/options.php';
 
 /*
