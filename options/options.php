@@ -110,7 +110,7 @@ $options = array(
     ), 
     array(
         'name' => '是否开启P2P', 
-        'desc' => '开启后将只能播放M3U8格式的视频', 
+        'desc' => '开启后将只能播放M3U8格式的视频<br>需要到<a target="_blank" href="https://oms.cdnbye.com/">https://oms.cdnbye.com</a>绑定域名,否则无法使用!', 
         'id' => 'git_p2p', 
         'type' => 'checkbox', 
     ), 
