@@ -104,6 +104,28 @@ $options = array(
         'type' => 'panelend'
     ), 
     array(
+        'title' => 'P2P设置', 
+        'id' => 'P2P', 
+        'type' => 'panelstart'
+    ), 
+    array(
+        'name' => '是否开启P2P', 
+        'desc' => '开启后将只能播放M3U8格式的视频', 
+        'id' => 'git_p2p', 
+        'type' => 'checkbox', 
+    ), 
+    array(
+        'name' => '自定义相关文字', 
+        'desc' => '定义播放器下方', 
+        'id' => 'git_p2p_text', 
+        'type' => 'textarea', 
+        'std' => "       'P2P正在为您加速' + (_totalP2PDownloaded/1024).toFixed(2)
++ 'MB 已分享' + (_totalP2PUploaded/1024).toFixed(2) + 'MB' + ' 连接节点' + _peerNum + '个'"
+    ), 
+    array(
+        'type' => 'panelend'
+    ), 
+    array(
         'title' => '其他设置', 
         'id' => 'qt', 
         'type' => 'panelstart'
@@ -137,16 +159,12 @@ array(
 ), 
 array(
     'name' => '自定义右键菜单', 
-    'id' => 'git_yjcd', 
+    'id' => 'git_caidan', 
     'type' => 'textarea', 
     'std' => '
         {
-            text: \'关于作者\',
-            link: \'https://diygod.me\'
-        },
-        {
-            text: "DPlayer v1.25.0",
-            link:"https://github.com/MoePlayer/DPlayer"
+            text: \'关于Selection\',
+            link: \'https://github.com/GreatSatan79/Selection\'
         }'), 
         array('type' => 'panelend')
     );
@@ -197,6 +215,7 @@ function git_options_page()
 
 <div class="wrap">
     <h2>DPlayer For Selection By WordPress </h2>
+    <p style="color:red">注意!本插件需先设置相关功能以后前台才会有数据!!!!</p>
     <form method="post">
     <h2 class="nav-tab-wrapper">
         <?php 
@@ -492,7 +511,7 @@ function git_options_page()
 		<code>assets/css/selection.css</code>文件<a target="_blank" href="https://saigaocy.me/wp-admin/plugin-editor.php?file=selection%2Fassets%2Fcss%2Fselection.css&plugin=selection%2Fselection.php""></a>点我修改</p>
     <hr>
     <script>
-var Words = "%20%20%20%20%3Cp%3E%u7279%u6B64%u9E23%u8C22%28%u6392%u540D%u4E0D%u5206%u524D%u540E%29%3A%3C/p%3E%0A%20%20%20%20%3Cp%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/8266075%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//diygod.me/%22%3EDIYgod%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/4526339%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//biji.io/%22%3ETokinx%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/25239238%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//ecy1.com/%22%3ECarseason%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/4999291%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//gitcafe.net/%22%3Eyunluo%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//www.bgbk.org/wp-content/avatar/518sn2dvlgp0.png%3Fver%3D1559746130%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//www.bgbk.org/%22%3EMr.Bing%3C/a%3E%0A%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//i.loli.net/2019/06/12/5cffd9601beb574509.jpg%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//www.moerats.com/%22%3ERat%27s%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//i.loli.net/2019/06/12/5cffd8b00328e48808.png%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//7b2.com/%22%3E%u6625%u54E5%3C/a%3E%3C/p%3E%0A%0A%20%20%20%20%3Cp%3E%u7531%u8877%u611F%u8C22%u4EE5%u4E0A%u6240%u6709%u4EBA%u5BF9%u672C%u63D2%u4EF6%u7684%u8D21%u732E%2C%u8C22%u8C22%21%3C/p%3E%0A%20%20%20%20%3Chr%3E%0A%20%20%20%20%3Cp%3ESelection%u63D2%u4EF6%u8BA8%u8BBA%u7FA4%3A%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//jq.qq.com/%3F_wv%3D1027%26k%3D5AFXgbv%22%3E951636879%3C/a%3E%3C/p%3E%0A%20%20%20%20%20%3Cp%3E%u5982%u679C%u89C9%u5F97%u672C%u63D2%u4EF6%u5BF9%u4F60%u6709%u7528%u7684%u8BDD%u8BF7%u7ED9%u4E00%u4E2AStar%u5427%7E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//github.com/GreatSatan79/Selection%22%3E%u9879%u76EE%u5730%u5740%3C/a%3E%3C/p%3E"
+var Words = "%20%20%20%20%3Cp%3E%u7279%u6B64%u9E23%u8C22%28%u6392%u540D%u4E0D%u5206%u524D%u540E%29%3A%3C/p%3E%0A%20%20%20%20%3Cp%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/8266075%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//diygod.me/%22%3EDIYgod%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/4526339%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//biji.io/%22%3ETokinx%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/25239238%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//ecy1.com/%22%3ECarseason%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/4999291%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//gitcafe.net/%22%3Eyunluo%3C/a%3E%0A%3Cbr%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//www.bgbk.org/wp-content/avatar/518sn2dvlgp0.png%3Fver%3D1559746130%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//www.bgbk.org/%22%3EMr.Bing%3C/a%3E%0A%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//i.loli.net/2019/06/12/5cffd9601beb574509.jpg%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//www.moerats.com/%22%3ERat%27s%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//i.loli.net/2019/06/12/5cffd8b00328e48808.png%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//7b2.com/%22%3E%u6625%u54E5%3C/a%3E%0A%20%20%20%20%3Cimg%20style%3D%22border-radius%3A%2050px%3Bheight%3A%2040px%3B%22%20src%3D%22https%3A//avatars3.githubusercontent.com/u/20073415%3Fs%3D180%26v%3D4%22%3E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//github.com/GreatSatan79/%22%3E79%3C/a%3E%3C/p%3E%0A%0A%20%20%20%20%3Cp%3E%u7531%u8877%u611F%u8C22%u4EE5%u4E0A%u6240%u6709%u4EBA%u5BF9%u672C%u63D2%u4EF6%u7684%u8D21%u732E%2C%u8C22%u8C22%21%3C/p%3E%0A%20%20%20%20%3Chr%3E%0A%20%20%20%20%3Cp%3ESelection%u63D2%u4EF6%u8BA8%u8BBA%u7FA4%3A%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//jq.qq.com/%3F_wv%3D1027%26k%3D5AFXgbv%22%3E951636879%3C/a%3E%3C/p%3E%0A%20%20%20%20%20%3Cp%3E%u5982%u679C%u89C9%u5F97%u672C%u63D2%u4EF6%u5BF9%u4F60%u6709%u7528%u7684%u8BDD%u8BF7%u7ED9%u4E00%u4E2AStar%u5427%7E%3Ca%20target%3D%22_blank%22%20href%3D%22https%3A//github.com/GreatSatan79/Selection%22%3E%u9879%u76EE%u5730%u5740%3C/a%3E%3C/p%3E%0A"
 function OutWord() {
     var NewWords;
     NewWords = unescape(Words);
