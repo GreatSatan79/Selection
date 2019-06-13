@@ -47,4 +47,4 @@ Today, DPlayer is coming to WordPress and 7B2.
 
 ## Screenshot
 <img src="https://i.loli.net/2019/06/06/5cf8b638a476d83909.jpg">
-<img src="https://i.loli.net/2019/06/06/5cf8b67e6ef0166723.png">
+<img src="https://i.loli.net/2019/06/13/5d0199998b27467011.png">
