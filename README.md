@@ -1,5 +1,11 @@
 ## Download must see
 <p>You must change <code>Selection-master</code> to <code>Selection</code> after downloading, otherwise it will go wrong!!!</p>
+## V1.3
+<p>Add P2P acceleration and progress bar remember</p>
+## v1.2
+<p>Repair some bugs</p>
+## V1.0
+<p>The original version was released!</p>
 
 ## DPlayer For Selection By WordPress
 
