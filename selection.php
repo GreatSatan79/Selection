@@ -3,7 +3,7 @@
 Plugin Name: Selection(7B2版)
 Plugin URI: https://saigaocy.me/
 Description: 本插件基于7B2主题开发而成 
-Version: 超装逼的至尊VIP
+Version: v1.3
 Author: 79
 Author URI: https://saigaocy.me/
 */
@@ -76,7 +76,9 @@ function selection($array_url_title)
             $zts = get_option('git_zts');
             $yl = get_option('git_yl');
             $api = get_option('git_api');
-            $cd = wp_unslash(get_option('git_yjcd'));
+            $cd = wp_unslash(get_option('git_caidan'));
+            $p2p = get_option('git_p2p');
+            $p2p_text = wp_unslash(get_option('git_p2p_text'));
         }
         $selselect .= '<a href="javascript:void(0)" class="video' . $j . '" value="' . $j . '" data-video="' . urldecode($video . $url[$i]) . '" title="' . urldecode($name[$i]) . '">' . urldecode($name[$i]) . '</a>';
         if (${$video_i} == 1) {
@@ -85,106 +87,255 @@ function selection($array_url_title)
             $selselect_none = '';
         }
     }
-    return <<<EOF
-    <link rel='stylesheet' id='selection-css' href='/wp-content/plugins/Selection/assets/css/selection.css' type='text/css' media='all'/>
-                <div class="bangumi-header clearfix">
-                <div class="header-info">
-                    <h2 title="{$title}">{$title}</h2>
-                    <div class="count-wrapper clearfix">
-                        <div class="view-count">
-                            <i>
-                            </i>
-                            <span>{$views}</span></div>
-                        <div class="comment-count">
-                            <i>
-                            </i>
-                            <span>{$loveNub}</span></div>
+    if (get_option('git_p2p')) {
+        return <<<EOF
+        <link rel='stylesheet' id='selection-css' href='/wp-content/plugins/Selection/assets/css/selection.css' type='text/css' media='all'/>
+                    <div class="bangumi-header clearfix">
+                    <div class="header-info">
+                        <h2 title="{$title}">{$title}</h2>
+                        <div class="count-wrapper clearfix">
+                            <div class="view-count">
+                                <i>
+                                </i>
+                                <span>{$views}</span></div>
+                            <div class="comment-count">
+                                <i>
+                                </i>
+                                <span>{$loveNub}</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="Car-player">
-                    <div class="Car-iframe">
-                        <div id="dplayer"></div>
-                    </div>
-                    <div class="ep-info-pre clearfix">
-                        <div class="clearfix">
-                            <div class="ep-info-left">
-                                <div class="ep-info-image">
-                                    <img src="{$img}" /></div>
-                            </div>
-                            <div class="ep-info-center">
-                                <h2 class="ep-info-title">{$title}</h2>
-                                <div class="ep-profile clearfix">
-                                    <p>{$introduction}</p>
+                    <div class="Car-player">
+                        <div class="Car-iframe">
+                            <div id="dplayer"></div>
+                            <div id="stats"></div>
+                        </div>
+                        <div class="ep-info-pre clearfix">
+                            <div class="clearfix">
+                                <div class="ep-info-left">
+                                    <div class="ep-info-image">
+                                        <img src="{$img}" /></div>
+                                </div>
+                                <div class="ep-info-center">
+                                    <h2 class="ep-info-title">{$title}</h2>
+                                    <div class="ep-profile clearfix">
+                                        <p>{$introduction}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="ep-list-pre-wrapper">
+                            <div class="ep-list-pre-header">
+                                <span class="season-item on">选集</span></div>
+                            <div class="Car-listSkip" {$selselect_none}="">{$selselect}</div></div>
                     </div>
-                    <div class="ep-list-pre-wrapper">
-                        <div class="ep-list-pre-header">
-                            <span class="season-item on">选集</span></div>
-                        <div class="Car-listSkip" {$selselect_none}="">{$selselect}</div></div>
+                </div>
+                <div id="dplayer"></div>
+                <div id="stats"></div>
+                <script>
+                function updateVideo(url) {
+                    var webdata = {
+                        set:function(key,val){
+                            window.sessionStorage.setItem(key,val);
+                        },
+                        get:function(key){
+                            return window.sessionStorage.getItem(key);
+                        },
+                        del:function(key){
+                            window.sessionStorage.removeItem(key);
+                        },
+                        clear:function(key){
+                            window.sessionStorage.clear();
+                        }
+                    };
+                    var id = md5(url);
+                    var dp = new DPlayer({
+                        container: document.getElementById('dplayer'),
+                        autoplay: {$zd},//自动播放
+                        theme: '{$zts}',//主题色
+                        preload: {$yjz},//预加载
+                        loop: {$xh},//循环
+                        screenshot: {$jt},//截图
+                        hotkey: {$rj},
+                        live: {$zhibo},
+                        logo: '{$logo}',
+                        volume: '{$yl}',
+                        video: {
+                            url: url,
+                            type: 'hls'
+                        },
+                        danmaku: {
+                            id: id,
+                            api: '{$api}'
+                        },
+                        contextmenu: [
+                            {$cd}
+                        ],
+                        hlsjsConfig: {
+                            debug: false,
+                            p2pConfig: {
+                                logLevel: true,
+                                live: false,// 如果是直播设为true
+                            }
+                        }
+                    });
+                    dp.seek(webdata.get('pay'+url));
+                    setInterval(function(){
+                        webdata.set('pay'+url,dp.video.currentTime);
+                    },1000);
+                    var _peerId = '', _peerNum = 0, _totalP2PDownloaded = 0, _totalP2PUploaded = 0;
+                    dp.on('stats', function (stats) {
+                        _totalP2PDownloaded = stats.totalP2PDownloaded;
+                        _totalP2PUploaded = stats.totalP2PUploaded;
+                        updateStats();
+                    });
+                    dp.on('peerId', function (peerId) {
+                        _peerId = peerId;
+                    });
+                    dp.on('peers', function (peers) {
+                        _peerNum = peers.length;
+                        updateStats();
+                    });
+                
+                    function updateStats() {
+                        var text = $p2p_text;
+                        document.getElementById('stats').innerText = text
+                    }
+                }
+                </script>
+EOF;
+    } else {
+        return <<<EOF
+        <link rel='stylesheet' id='selection-css' href='/wp-content/plugins/Selection/assets/css/selection.css' type='text/css' media='all'/>
+        <div class="bangumi-header clearfix">
+        <div class="header-info">
+            <h2 title="{$title}">{$title}</h2>
+            <div class="count-wrapper clearfix">
+                <div class="view-count">
+                    <i>
+                    </i>
+                    <span>{$views}</span></div>
+                <div class="comment-count">
+                    <i>
+                    </i>
+                    <span>{$loveNub}</span></div>
+            </div>
+        </div>
+        <div class="Car-player">
+            <div class="Car-iframe">
+                <div id="dplayer"></div>
+            </div>
+            <div class="ep-info-pre clearfix">
+                <div class="clearfix">
+                    <div class="ep-info-left">
+                        <div class="ep-info-image">
+                            <img src="{$img}" /></div>
+                    </div>
+                    <div class="ep-info-center">
+                        <h2 class="ep-info-title">{$title}</h2>
+                        <div class="ep-profile clearfix">
+                            <p>{$introduction}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <script>
-\t\t\tfunction updateVideo(url) {
-\t\t\t\tvar id = md5(url);
-\t\t\t\tconst dp = new DPlayer({
-\t\t\t\t\tcontainer: document.querySelector('#dplayer'),
-\t\t\t\t\tvideo: {
-\t\t\t\t\t\turl: url
-\t\t\t\t\t},
-\t\t\t\t\tautoplay: {$zd},
-\t\t\t\t\ttheme: '{$zts}',
-\t\t\t\t\tpreload: {$yjz},
-\t\t\t\t\tloop: {$xh},
-\t\t\t\t\tscreenshot: {$jt},
-\t\t\t\t\thotkey: {$rj},
-\t\t\t\t\tlive: {$zhibo},
-\t\t\t\t\tlogo: '{$logo}',
-\t\t\t\t\tvolume: '{$yl}',
-\t\t\t\t\tdanmaku: {
-\t\t\t\t\t\tid: id,
-\t\t\t\t\t\tapi: '{$api}'
-\t\t\t\t\t},
-\t\t\t\t\tcontextmenu: [
-{$cd}
-\t\t\t\t\t]
-\t\t\t\t});
-\t\t\t}
-</script>
+            <div class="ep-list-pre-wrapper">
+                <div class="ep-list-pre-header">
+                    <span class="season-item on">选集</span></div>
+                <div class="Car-listSkip" {$selselect_none}="">{$selselect}</div></div>
+        </div>
+    </div>
+    <script>
+    function updateVideo(url) {
+        var webdata = {
+            set:function(key,val){
+                window.sessionStorage.setItem(key,val);
+            },
+            get:function(key){
+                return window.sessionStorage.getItem(key);
+            },
+            del:function(key){
+                window.sessionStorage.removeItem(key);
+            },
+            clear:function(key){
+                window.sessionStorage.clear();
+            }
+        };
+    	var id = md5(url);
+    	const dp = new DPlayer({
+    		container: document.querySelector('#dplayer'),
+    		video: {
+    			url: url
+    		},
+    		autoplay: {$zd},
+    		theme: '{$zts}',
+    		preload: {$yjz},
+    		loop: {$xh},
+    		screenshot: {$jt},
+    		hotkey: {$rj},
+    		live: {$zhibo},
+    		logo: '{$logo}',
+    		volume: '{$yl}',
+    		danmaku: {
+    			id: id,
+    			api: '{$api}'
+    		},
+    		contextmenu: [
+            {$cd}
+            ]
+        });
+        dp.seek(webdata.get('pay'+url));
+                    setInterval(function(){
+                        webdata.set('pay'+url,dp.video.currentTime);
+                    },1000);
+    } 
+    </script>
 EOF;
+    }
 }
 add_action('after_wp_tiny_mce', 'Cae_iframe');
+
+
 /*
 这里是前端所需文件
 */
 if (!is_admin()) {
     //播放器样式
-    wp_enqueue_style('selection-dplayer-min', plugins_url("Selection/assets/css/dplayer/dplayer.min.css"), false);
+    if (get_option('git_p2p')) {
+        wp_enqueue_style('selection-dplayer-p2p', esc_url("//cdn.jsdelivr.net/npm/p2p-dplayer@latest/dist/DPlayer.min.css"), false);
+    } else {
+        wp_enqueue_style('selection-dplayer-min', plugins_url("Selection/assets/css/dplayer/dplayer.min.css"), false);
+    }
 }
 function ds_print_jquery_in_footer()
 {
     if (!is_admin()) {
         //Javascript库
         if (get_option('git_jq')) {
-        wp_enqueue_script('selection-jquery-min', plugins_url("Selection/assets/js/jquery.min.js"), false);
+            wp_enqueue_script('selection-jquery-min', plugins_url("Selection/assets/js/jquery.min.js"), false);
         }
         //前端JS
         wp_enqueue_script('selection', plugins_url('Selection/assets/js/selection.js'), false);
-        //播放器JS
-        wp_enqueue_script('selection-dplayer-min', plugins_url("Selection/assets/js/dplayer/dplayer.min.js"), false);
-        //用于解析HLS
+        //MD5相关
         wp_enqueue_script('selection-dplayer-md5-min', plugins_url("Selection/assets/js/dplayer/md5.min.js"), false);
-        if (get_option('git_hls')) {
-            wp_enqueue_script('selection-dplayer-hls-min', plugins_url('Selection/assets/js/dplayer/hls.min.js'), false);
-        }
-        //用于解析MPEG DASH
-        if (get_option('git_dash')) {
-            wp_enqueue_script('selection-dplayer-dash-min', plugins_url('Selection/assets/js/dplayer/dash.min.js'), false);
-        }
-        //用于解析FLV
-        if (get_option('git_flv')) {
-            wp_enqueue_script('selection-dplayer-flv-min', plugins_url('Selection/assets/js/dplayer/flv.min.js'), false);
+        //P2P相关
+        if (get_option('git_p2p')) {
+            wp_enqueue_script('election-dplayer-cdnbye-p2p', esc_url("//cdn.jsdelivr.net/npm/cdnbye@latest"), false);
+            wp_enqueue_script('election-dplayer-p2p', esc_url("//cdn.jsdelivr.net/npm/p2p-dplayer@latest"), false);
+        } else {
+            //播放器JS
+            wp_enqueue_script('selection-dplayer-min', plugins_url("Selection/assets/js/dplayer/dplayer.min.js"), false);
+            //用于解析HLS
+            if (get_option('git_hls')) {
+                wp_enqueue_script('selection-dplayer-hls-min', plugins_url('Selection/assets/js/dplayer/hls.min.js'), false);
+            }
+            //用于解析FLV
+            if (get_option('git_flv')) {
+                wp_enqueue_script('selection-dplayer-flv-min', plugins_url('Selection/assets/js/dplayer/flv.min.js'), false);
+            }
+            //用于解析MPEG DASH
+            if (get_option('git_dash')) {
+                wp_enqueue_script('selection-dplayer-dash-min', plugins_url('Selection/assets/js/dplayer/dash.min.js'), false);
+            }
         }
     }
 }
