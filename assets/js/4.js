@@ -4,4 +4,5 @@ $("img[src='http://www.kuaimitu.com/static/upload/af4a462034ad73d6/e44de4c031d06
   $('.layui-layer-shade').css('display','none');
   $('.layui-layer').css('display','none');
   $('.ewm').css('display','none');
+  $('.spsm').css('display','none');
 })();
